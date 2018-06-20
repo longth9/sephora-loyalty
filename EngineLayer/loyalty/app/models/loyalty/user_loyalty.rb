@@ -1,16 +1,13 @@
 module Loyalty
   class UserLoyalty < ApplicationRecord
-    establish_connection(
-      {
-          :adapter => 'postgresql',
-          :database => 'loyaltydb',
-          :host => 'localhost',
-          :username => 'loyalty',
-          :password => "" 
-      })
 
+    DB_STATS = YAML::load(ERB.new(File.read(Rails.root.join("config","database.yml"))).result)[Rails.env]
 
-    self.table_name = "loyaltee_accounts"
+    establish_connection DB_STATS
+    
+    self.abstract_class = true
+
+    self.table_name = "public.loyaltee_accounts"
     self.primary_key = "id"
 
     def user
