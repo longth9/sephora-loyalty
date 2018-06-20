@@ -1,0 +1,19 @@
+<div class="limiter">
+    <div class="container container_detail">
+        <div class="row info_container">
+            <div class="col-10 col-lg-8">
+                <div class="title">User List</div>
+                <% @users.each do |u| %>
+                  <div class="row">
+                      <div class="col-9 col-lg-4 info_rows">
+                          <div> <%= u.first_name %>&nbsp <%= u.last_name %></div>
+                      </div>
+                      <div class="col-3  col-lg-4 info_rows">
+                          <div><%= link_to "View Loyalty", loyalty_path(id: u.loyalty_id) %><br/></div>
+                      </div>
+                  </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

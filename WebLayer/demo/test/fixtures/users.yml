@@ -1,0 +1,20 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  id: 1
+  first_name: Nguyen
+  last_name: Hubert
+  email: hubert@gmail.com
+  gender: male
+  age: 26
+  loyalty_id: 1
+  country: CK
+two:
+  id: 2
+  first_name: Nguyen
+  last_name: jonn
+  email: jonn@gmail.com
+  gender: male
+  age: 27
+  loyalty_id: 2
+  country: us
