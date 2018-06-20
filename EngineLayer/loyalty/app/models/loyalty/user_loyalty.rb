@@ -18,7 +18,12 @@ module Loyalty
       class << u
         attr_accessor :country_name
       end
-      u.country_name = NetApi.country_name(u.country)
+      country_code = u.country
+      cache_key = "country_name/#{country_code}"
+      country_name = Rails.cache.fetch(cache_key, expires_in: 24.hours) do
+        NetApi.country_name(country_code)
+      end
+      u.country_name = country_name
       u
     end
 
